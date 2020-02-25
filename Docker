@@ -1,0 +1,34 @@
+# Install Docker
+sudo apt install docker.io
+-----------------------------------------------------------------
+
+# Install Docker container of using docker image of ns-3 DCE
+sudo docker run -i -t thehajime/ns-3-dce /bin/bash
+-----------------------------------------------------------------
+
+# List all docker containers
+sudo docker ps -a
+-----------------------------------------------------------------
+
+# Start a container
+sudo docker start [docker-name]
+ex :
+sudo docker start eager_mcnulty
+output:
+CONTAINER ID        IMAGE                COMMAND             CREATED             STATUS                    PORTS               NAMES
+335a18dd394e        thehajime/ns-3-dce   "/bin/bash"         4 days ago          Exited (255) 3 days ago                       relaxed_swartz
+63a5a893a4f4        thehajime/ns-3-dce   "/bin/bash"         4 days ago          Exited (0) 4 days ago                         ecstatic_einstein
+13008ed99108        thehajime/ns-3-dce   "/bin/bash"         4 days ago          Exited (130) 4 days ago                       gifted_shannon
+106154e5ec9c        thehajime/ns-3-dce   "/bin/bash"         4 days ago          Exited (0) 4 days ago                         elastic_jang
+133a04e11c7b        thehajime/ns-3-dce   "/bin/bash"         5 days ago          Up 3 hours                                    eager_mcnulty
+-----------------------------------------------------------------
+
+# Enter into a particular container
+sudo docker exec -it eager_mcnulty /bin/bash
+-----------------------------------------------------------------
+
+#Copy a file from docker container to local host
+sudo docker cp 133a04e11c7b9115efad7fd1d2b4efdc2eb27cf228e9d6932ee38494f9bdb7e6:/home/ns3dce/dce-linux-dev/source/ns-3-dce/results/dumbbell-topology/ovrlapcwnd/CwndA.png .
+#ID can be replaced with docker container name
+-----------------------------------------------------------------
+
